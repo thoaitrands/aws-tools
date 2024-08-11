@@ -1,0 +1,21 @@
+version: '3.1'
+
+services:
+  db:
+    image: mysql
+    container_name: mysql-server
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./db_data:/var/lib/mysql
+
+    ports:
+      - 3306:3306
+    networks:
+      - aws-training
+networks:
+  aws-training:
+    external: true
+    name: "aws-training"
