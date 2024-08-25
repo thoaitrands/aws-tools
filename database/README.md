@@ -30,3 +30,11 @@ docker run -d --name mysql-server -p 3306:3306 --network aws-training -e "MYSQL_
 ```
     docker compose up --build
 ```
+
+### 1.KUBENETES
+```
+    kubectl apply -f database/mysql-configmap.yml
+    kubectl apply -f database/mysql-init-configmap.yml
+    kubectl apply -f database/secrets.yml
+    kubectl apply -f database/mysql-deployment.yml
+```
